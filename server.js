@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PRICE_IDS = {
-  fortnightly: 'price_1UW8uKIjg1wP4x3iKkgxUdFz',
-  fourWeekly: 'price_1UW8y5Ijg1wP4x3ixFiuiZkR'
+  fortnightly: process.env.STRIPE_PRICE_2_WEEKS,
+  fourWeekly: process.env.STRIPE_PRICE_4_WEEKS
 };
 const ALLOWED_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const ALLOWED_BINS = ['Red bin', 'Yellow bin', 'Green bin', 'Other bin'];
