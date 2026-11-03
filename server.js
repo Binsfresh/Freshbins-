@@ -54,11 +54,15 @@ app.post('/api/checkout', async (req, res) => {
     return res.status(500).json({ error: 'Could not start checkout. Please try again or contact us.' });
   }
 });
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: __dirname });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-app.get('/success.html', (req, res) => { 
+
+app.get('/success.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
-app.listen(process.env.PORT || 3000, () => console.log('Booking website ready'));
 
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Booking website ready');
+});
